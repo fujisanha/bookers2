@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-md-3">
       <h2>User info</h2>
-      <image></image>
+      <%= image_tag @user.get_profile_image(100,100) %>
       <table class="table">
         <tbody>
           <tr>
@@ -39,8 +39,24 @@
       <table class="table">
         <tbody>
           <tr>
+            <td>
+              <%= link_to user_path(current_user.id) do %>
+                <%= image_tag @user.get_profile_image(100,100) %>
+                <%= @user.name %>
+              <% end %>
+            </td>
             <td><%= @book.title %></td>
             <td><%= @book.body %></td>
+            <td>
+              <button class="btn btn-sm btn-success">
+                <%= link_to "Edit", edit_book_path(@book) %>
+              </button>
+            </td>
+            <td>
+              <button class="btn btn-sm btn-danger">
+                <%= link_to "Destroy", book_path(@book), method: :delete %>
+              </button>
+            </td>
           </tr>
         </tbody>
       </table>
