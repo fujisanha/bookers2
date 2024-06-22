@@ -20,6 +20,7 @@
             </td>
             <td><%= @book.title %></td>
             <td><%= @book.body %></td>
+            <% if @user == current_user %>
             <td>
               <button class="btn btn-sm btn-success">
                 <%= link_to "Edit", edit_book_path(@book) %>
@@ -30,6 +31,7 @@
                 <%= link_to "Destroy", book_path(@book), method: :delete %>
               </button>
             </td>
+            <% end %>
           </tr>
         </tbody>
       </table>
