@@ -21,7 +21,7 @@
           <tr>
             <td><%= image_tag @user.get_profile_image(90,90) %></td>
             <td>
-              <%= link_to book_path do %>
+              <%= link_to book_path(book.id) do %>
                 <%= book.title %>
               <%end %>
             </td>
