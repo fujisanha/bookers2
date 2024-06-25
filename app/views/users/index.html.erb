@@ -16,11 +16,11 @@
           </tr>
         </thead>
         <tbody>
-        <% @users.each do |book| %>
+        <% @users.each do |user| %>
           <tr>
-            <td><%= image_tag @user.get_profile_image(90,90) %></td>
-            <td><%= @user.name %></td>
-            <td><%= link_to "show", user_path(@user) %></td>
+            <td><%= image_tag user.get_profile_image(90,90) %></td>
+            <td><%= user.name %></td>
+            <td><%= link_to "Show", user_path(user) %></td>
           </tr>
         <% end %>
         </tbody>

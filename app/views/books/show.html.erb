@@ -2,7 +2,7 @@
   <div class="row">
   
   
-    <%= render 'book', user: current_user %>
+    <%= render 'books/book.html.erb', user: current_user %>
     
     
     
@@ -12,14 +12,16 @@
         <tbody>
           <tr>
             <td>
-              <%= link_to user_path(current_user.id) do %>
-                <%= image_tag @user.get_profile_image(100,100) %>
-                <%= @user.name %>
+              <%= link_to user_path(@book.user) do %>
+                <%= image_tag @book.user.get_profile_image(100,100) %>
+              <% end %>
+              <%= link_to user_path(@book.user) do %>
+                <%= @book.user.name %>
               <% end %>
             </td>
             <td><%= @book.title %></td>
             <td><%= @book.body %></td>
-            <% if @user == current_user %>
+            <% if @book.user == current_user %>
             <td>
               <button class="btn btn-sm btn-success">
                 <%= link_to "Edit", edit_book_path(@book.id) %>
